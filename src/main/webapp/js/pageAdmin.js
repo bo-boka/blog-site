@@ -6,12 +6,15 @@
 
 $(document).ready(function () {
 
+    
     loadPages();
 
     $('#addPageButton').click(function (event) {
         event.preventDefault();
 
         var contentData = tinyMCE.get('addPageContent');
+        var pageTitle = $('#addPageTitle').val();
+        var pageContent = contentData.getContent();
 
         $.ajax({
             url: 'page',
@@ -22,27 +25,61 @@ $(document).ready(function () {
             },
             'dataType': 'json',
             data: JSON.stringify({
-                title: $('#addPageTitle').val(),
-                content: contentData.getContent()
-                        // hardcoded sample data
-//                image: "example.com/image.png"
+                title: pageTitle,
+                content: pageContent
             })
         }).success(function (data, status) {
             $('#addPageTitle').val('');
-            $('#addPageContent').val('');
-
+            contentData.setContent('');
+            window.location="http://localhost:8080/BlogCapstone/admin";
             loadPages();
+            window.onbeforeunload = function() {};
+        }).error(function (data, status) {
+            var errorDiv = $("#validationPageErrors");
+            errorDiv.empty();
+            $.each(data.responseJSON.fieldErrors, function (index, validationError) {
+                errorDiv.append(validationError.message);
+                errorDiv.append("<br>");
+                errorDiv.show();
+            });
         });
     });
-    // read
 
-    // update 
 
-    // delete
 
-    // table
+    $('#editPageModal').on("show.bs.modal", function (event) {
+        var element = $(event.relatedTarget);
+        var id = element.data("page-id");
+        editPage(id);
+    });
+
+    $('#editPageButton').click(function (event) {
+        var contentData = tinyMCE.get('page-edit-content');
+        var pageTitle = $("#page-edit-title").val();
+        var pageContent = contentData.getContent();
+        event.preventDefault();
+        updatePage();
+    });
 });
+// fill modal
+function editPage(id) {
 
+//    var x = tinyMCE.get('page-edit-content');
+//    var pageContent = contentData.getContent();
+
+    $.ajax({
+        url: "page/" + id,
+        type: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    }).success(function (page) {
+        var test = page.content;
+        $("#page-edit-id").val(page.id);
+        $("#page-edit-title").val(page.title);
+        $("#page-edit-content").val(tinyMCE.get('page-edit-content').setContent(test));
+    });
+}
 
 function loadPages() {
     $.ajax({
@@ -51,7 +88,6 @@ function loadPages() {
         type: 'GET'
     }).success(function (data) {
         fillPageTable(data);
-        fillCausesDropdown(data);
     });
 }
 
@@ -60,31 +96,74 @@ function fillPageTable(pageList, status) {
 
     $.each(pageList, function (index, page) {
         $('#pageRows').append($('<tr>')
-                .append($('<td>').text(page.author))
                 .append($('<td>').text(page.title))
-                .append($('<td>').append($('<a>').attr({
-                    'data-page-id': page.id,
-                    'data-toggle': 'modal',
-                    'data-target': '#editModal'
-                })
-                        .text('Edit')))
-                .append($('<td>').append($('<a>').attr({
-                    'onClick': 'deletePage(' + page.id + ')'
-                })
+                .append($('<td>')
+                        .append($('<button>').attr({
+                            'class': 'btn btn-primary',
+                            'data-toggle': 'modal',
+                            'data-target': '#editPageModal',
+                            'data-page-id': page.id
+                        }).text('Edit')))
+
+                .append($('<td>').append($('<button>').attr({
+                    'class': 'btn btn-danger',
+                    'onClick': 'deletePage(' + page.id + ')'})
                         .text('Delete')))
-                .append($('<td>').text(page.date))
                 );
     });
 }
 
-function fillCausesDropdown(causeList, status) {
-    $('#causesDD').empty();
+// delete
 
-    $.each(causeList, function (index, page) {
-        $('#causesDD').append($('<li>').text(page.title));
-//                .append($('<a>').attr({
-//                    'onchange': 'displayCausePage(' + page.id + ')'
-//                }).text(page.title))
-//                );
+function deletePage(id) {
+    $.ajax({
+        type: "DELETE",
+        url: "page/" + id
+    }).success(function () {
+        loadPages();
     });
+}
+
+//edit page
+
+function updatePage() {
+
+    var contentData = tinyMCE.get('page-edit-content');
+    var pageId = $("#page-edit-id").val();
+    var pageTitle = $("#page-edit-title").val();
+    var pageContent = contentData.getContent();
+    var pageImage = null;
+
+    $.ajax({
+        url: "page/" + pageId,
+        type: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        "dataType": "json",
+        data: JSON.stringify({
+            title: pageTitle,
+            content: pageContent,
+            image: null,
+            id: pageId
+        })
+
+    }).success(function (data) {
+        loadPages();
+        $("#editPageModal").modal('hide');
+        $("#validationPageEditErrors").empty();
+    }).error(function (data, status) {
+        var errorDiv = $("#validationPageEditErrors");
+        errorDiv.empty();
+        errorDiv.show();
+        $.each(data.responseJSON.fieldErrors, function (index, validationError) {
+            errorDiv.append(validationError.message);
+            errorDiv.append("<br>");
+            
+//            $("#editPageModal").on('hide', function(e){
+//                e.preventDefault();
+//            });
+        });
+    });
+
 }

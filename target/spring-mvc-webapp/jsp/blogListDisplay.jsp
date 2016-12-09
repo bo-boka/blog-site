@@ -8,60 +8,45 @@
         <title>Search Page</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/decoration.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
         <!-- SWC Icon -->
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/icon.png">
-
+        <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet">
     </head>
     <body>
-        
-        <%@include file="carouselFragment.jsp" %>
-        
-        <div class="container">
-            <hr/>
-            <div class="navbar">
-                <ul class="nav nav-tabs">
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/home">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/about">About</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Causes
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a role="presentation"><a href="${pageContext.request.contextPath}/causes">Placeholder</a></li>
-                            <li><a role="presentation"><a href="${pageContext.request.contextPath}/causes">Placeholder</a></li>
-                            <li><a role="presentation"><a href="${pageContext.request.contextPath}/causes">Placeholder</a></li> 
-                        </ul>
-                    </li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
-                    <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/blogListDisplay">Search</a></li>
-                </ul>    
-            </div>
-        </div>
+    <center>
+        <div class="container" id="blogName">
+            <h1>Amelia's Blog</h1>
+            <h4>Storm Chasing Baby Saving Laser Jet Philanthropist</h4><br>
+        </div> 
+    </center>
+    <hr>
+    <%@include file="headerFragment.jsp" %>
+        <div class="container" id="searchBar">
+            <center><h1 id="blogName" style="color: white; display: inline">Search By:</h1>
+            <select name="searchCategory" id="searchCategory" style="display: inline">
+                <option value="---">Choose..</option>
+                <option value="Title">Title</option>
+                <option value="Category">Category</option>
+                <option value="Author">Author</option>
+                <option value="Tags">Tags</option>
+            </select></center>
+            <br/>
+            <center>
+            <input type="text" id="searchInfo" placeholder="Search..">
+            <br/>
+            <br/>
+            <button type="button" id="searchButton">Go</button></center>
+            <div id="HomeRows"></div>
+        </div>     
 
-        <div class="container">        
-            <div class="col-md-8">
-                <table id="HomeTable" name="HomeTable" class="table table-hover">
-                    <tbody id="HomeRows" name="HomeRows"></tbody>
-                </table>
-            </div>
-        
-            <div class="col-md-2">
-                Categories:
-                <select name="searchCategory" id="searchCategory">
-                    <option value="">---</option>
-                    <option value="Storms">Storms</option>
-                    <option value="Causes">Causes</option>
-                    <option value="Philanthropy">Philanthropy</option>
-                    <option value="Events">Events</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-        </div>
+    <%@include file="footerFrag.jsp" %>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="${pageContext.request.contextPath}/js/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/BlogListDisplay.js"></script>
 
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="${pageContext.request.contextPath}/js/jquery-2.2.4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/BlogListDisplay.js"></script>
-
-    </body>
+</body>
 </html>

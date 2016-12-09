@@ -34,7 +34,7 @@
     <bean id="jdbcTemplateBean" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSourceBean" />
     </bean>
-    
+   
     <bean id="blogJdbcDao" class="com.tsguild.blogcapstone.dao.BlogDaoImpl" >
         <property name="jdbcTemplate" ref="jdbcTemplateBean" />
     </bean>

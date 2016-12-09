@@ -70,14 +70,15 @@ public class PageDaoImpl implements PageDao {
     }
     
     private static final String SQL_UPDATE_PAGE
-            = "UPDATE pages SET title = ?, content = ?, image = ? WHERE page_id = ?";
+            = "UPDATE `pages` SET `title` = ?, `content` = ?, `image` = ? WHERE `page_id` = ?";
 
     @Override
     public void updatePage(Page page) {
         jdbcTemplate.update(SQL_UPDATE_PAGE,
                 page.getTitle(),
                 page.getContent(),
-                page.getImage());
+                page.getImage(),
+                page.getId());
     }
 
     private static final String SQL_REMOVE_PAGE

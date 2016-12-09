@@ -9,6 +9,7 @@ import com.tsguild.blogcapstone.dao.PageDao;
 import com.tsguild.blogcapstone.dto.Page;
 import java.util.List;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +36,7 @@ public class PageController {
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/page", method = RequestMethod.POST)
-    public Page createPage(@RequestBody Page page) {
+    public Page createPage(@Valid @RequestBody Page page) {
         dao.createPage(page);
         return page;
     }
@@ -45,7 +46,8 @@ public class PageController {
     public Page getPageById(@PathVariable int id) {
         return dao.getPageById(id);
     }
-
+    
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/page/{id}", method = RequestMethod.DELETE)
     public void deletePage(@PathVariable int id) {
         dao.deletePage(id);
@@ -53,7 +55,7 @@ public class PageController {
     
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/page/{id}", method = RequestMethod.PUT)
-    public void updatePage(@PathVariable int id, Page page){
+    public void updatePage(@PathVariable int id,@Valid @RequestBody Page page){
         dao.updatePage(page);
     }
     

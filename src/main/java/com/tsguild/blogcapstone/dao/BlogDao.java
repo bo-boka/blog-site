@@ -24,17 +24,24 @@ public interface BlogDao {
     void deleteBlog(int id);
 
     List<Blog> getAllBlogs();
+    
+    List<Blog> getAllPublishedBlogs();
 
     Blog getBlogById(int id);
+    
+    List<String> getAllBlogCategories();
 
     //SEARCH BLOGS BY CATEGORY
     List<Blog> searchBlogsByCategory(String searchCategory);
+    
+    //SEARCH BLOGS BY AUTHOR
+    List<Blog> searchBlogsByAuthor(String searchAuthor);
 
     //SEARCH BLOGS BY DATE
     List<Blog> searchBlogsByDate(String searchDate);
 
     //SEARCH BLOGS BY TAGS
-    List<Blog> searchBlogsByTags(int tagId);
+    List<Blog> searchBlogsByTags(String tagId);
 
     //SEARCH BLOGS BY TITLE
     List<Blog> searchBlogsByTitle(String searchTitle);

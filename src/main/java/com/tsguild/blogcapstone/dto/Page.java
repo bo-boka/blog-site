@@ -7,6 +7,8 @@ package com.tsguild.blogcapstone.dto;
 
 import java.sql.Blob;
 import java.util.Objects;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -15,7 +17,13 @@ import java.util.Objects;
 public class Page {
     
     private int id;
+    
+    @NotEmpty(message="Page must have a title.")
+    @Length(max=50, message="Title cannot be more than 50 characters in length.")
     private String title;
+    
+    @NotEmpty(message="Page needs content.")
+    @Length(max=10000, message="The page content cannot be more than 10,000 characters.")
     private String content;
     private Blob image;
 

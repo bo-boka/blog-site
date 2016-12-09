@@ -1,0 +1,19 @@
+
+#searchInfo {
+    border-radius: 20px;
+    padding: 20px; 
+    width: 80%;
+    height: 25px; 
+}
+
+#searchCategory {
+    border-radius: 5px;
+    height: 25px;
+    width: 200px;
+}
+
+#searchButton {
+    height: 25px;
+    width: 75px;
+    border-radius: 5px;
+}

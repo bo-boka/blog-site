@@ -7,7 +7,10 @@ package com.tsguild.blogcapstone.dto;
 
 import java.sql.Blob;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -16,11 +19,27 @@ import java.util.Objects;
 public class Blog {
     
     private int id;
+    
+    @NotEmpty(message="Title can't be empty.")
+    @Length(max=50, message="Title must be no more than 50 characters in length.")
     private String title;
+    
+    @NotEmpty(message="Content can't be empty.")
+    @Length(max=10000, message="Content must be no more than 10000 characters in length.")
     private String content;
+    
+    @NotEmpty(message="Author can't be empty.")
+    @Length(max=50, message="Author must be no more than 50 characters in length.")
     private String author;
+    
+    @NotEmpty(message="Date can't be empty.")
+    @Length(max=40, message="Date must be no more than 50 characters in length.")
     private String date;
+    
+    @NotEmpty(message="Category can't be empty.")
+    @Length(max=50, message="Category must be no more than 50 characters in length.")
     private String category;
+    
     private Blob image;
     private ArrayList<String> tags;
     private boolean published;
@@ -37,6 +56,27 @@ public class Blog {
     }
     
     public Blog(String title, String content, String author, String date, String category, ArrayList tags, boolean published) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+        this.date = date;
+        this.category = category;
+        this.tags = tags;
+        this.published = published;
+    }
+    
+    public Blog(int id, String title, String content, String author, String date, String category, boolean published) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.author = author;
+        this.date = date;
+        this.category = category;
+        this.published = published;
+    }
+
+    public Blog(int id, String title, String content, String author, String date, String category, ArrayList<String> tags, boolean published) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;

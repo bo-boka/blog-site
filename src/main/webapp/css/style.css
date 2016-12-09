@@ -1,0 +1,148 @@
+/*@font-face {
+    font-family: myNameFont;
+    src: url(sansation_light.woff);
+}*/
+
+body {
+    background-image: url("../img/storm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #323956;
+    background-attachment: fixed;
+}
+
+.adminSection {
+    background: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #e2e2e2;
+}
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  display: none;
+/*  opacity: 0;
+  max-height: 0;
+  font-size: 0;*/
+  transition: .25s ease;
+}
+
+.read-more-target-published {
+  display: none;
+/*  opacity: 0;
+  max-height: 0;
+  font-size: 0;*/
+  transition: .25s ease;
+}
+
+.read-more-state:checked + .read-more-target {
+ 
+/*  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;*/
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Show All';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Show less';
+}
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 .5em;
+  color: #666;
+  font-size: .9em;
+  line-height: 2;
+  border: 1px solid #ddd;
+  border-radius: .25em;
+}
+
+#newCategory {
+    display: none;
+}
+
+.addButtonGroup {
+    margin-right: 15px;
+}
+
+.row-buffer {
+    margin-top: 10px;
+    background: rgba(22,22,22, 0.5);
+    padding: 5px;
+    border: 1px solid #e2e2e2;
+    color: #ffffff;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+#firstBlog {
+    background: rgba(22,22,22, 0.5);
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+    color: #ffffff;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+.pageDiv {
+    background: rgba(22,22,22, 0.5);
+    padding: 25px;
+    border: 2px solid #e2e2e2;
+    color: #ffffff;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    margin: 30px;
+}
+
+#aboutDiv {
+    background: rgba(22,22,22, 0.5);
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+    color: #ffffff;
+}
+
+#blogName {
+    padding: 10px;
+    color: #ffffff;
+    font-family: 'Calligraffitti', cursive;
+}
+
+h1 {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.tab-format{
+    background: #337ab7;
+}
+
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+
+footer {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background: rgba(22,22,22, 0.5);
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+    color: #ffffff;
+    margin: 25px;
+    
+}
+
+.footspan {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+a {
+    color: #ffffff;
+}
+

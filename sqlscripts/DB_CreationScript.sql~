@@ -1,0 +1,161 @@
+DROP DATABASE IF EXISTS BlogDB;
+CREATE DATABASE BlogDB;
+
+USE BlogDB;
+
+--
+-- Table structure for table `authors`
+--
+CREATE TABLE authors (
+	`author_id` int(11) NOT NULL AUTO_INCREMENT,
+	`username` varchar(20) NOT NULL,
+	`password` varchar(20) NOT NULL,
+	`enabled` tinyint(1) NOT NULL,
+	PRIMARY KEY (`author_id`),
+	KEY `username` (`username`)
+);
+--
+-- Dumping data for table `authors`
+--
+INSERT INTO `authors` (`author_id`, `username`, `password`, `enabled`) 
+				 VALUES (1, "admin", "password", 1),
+						(2, "user", "password", 1),
+						(3, "both", "password", 1),
+						(4, "neither", "password", 1);
+--
+-- Table structure for table `authorities`
+--
+CREATE TABLE IF NOT EXISTS `authorities` (
+ `username` varchar(20) NOT NULL,
+ `authority` varchar(20) NOT NULL,
+ KEY `username` (`username`)
+);
+--
+-- Dumping data for table `authorities`
+--
+INSERT INTO `authorities` (`username`, `authority`) VALUES
+('admin', 'ROLE_ADMIN'),
+('user', 'ROLE_USER'),
+('both', 'ROLE_ADMIN'),
+('both', 'ROLE_USER'),
+('neither', 'EATS_POTATOES');
+
+--
+-- Table structure for table 'blogs'
+-- Removed tag_id becuase we are going to use blog_id as the foriegn key
+
+CREATE TABLE IF NOT EXISTS `blogs` (
+`blog_id` int(11) NOT NULL AUTO_INCREMENT,
+`title` varchar(50) NOT NULL,
+`content` text,
+`author_id` int(11),
+`date` date,
+`category_id` int(11),
+`image` blob,
+`published` boolean,
+PRIMARY KEY (`blog_id`)
+);
+
+--
+-- Dumping data for table 'blogs'
+-- 
+
+INSERT INTO `blogs` (`blog_id`, `title`, `content`, `author_id`, `date`, `category_id`, `image`, `published`) VALUES 
+
+(1, 'Blog 1', 'This is the first blog', 1, '01012014', 1, 'someurl', false),
+(2, 'Blog 2', 'This is the second blog', 1, '01012014', 2, 'someurl', false),
+(3, 'Blog 3', 'This is the third blog and it is published', 1, '01012014', 2, 'someurl', true);
+
+
+--
+-- Table structure for 'tags'
+--
+
+CREATE TABLE IF NOT EXISTS `tags`(
+`tag_id` int(11) NOT NULL AUTO_INCREMENT,
+`tag` varchar(50) NOT NULL,
+PRIMARY KEY (`tag_id`)
+);
+
+--
+-- Dumping data for table 'tags'
+--
+
+INSERT INTO `tags` (`tag_id`, `tag`) VALUES
+
+(1, 'storm'),
+(2, 'extreme'),
+(3, 'babies');
+
+
+--
+-- Table Structure for table 'blogs_tags'
+--
+
+CREATE TABLE IF NOT EXISTS `blogs_tags` (
+`blog_id` int(11) NOT NULL,
+`tag_id` int(11) NOT NULL
+);
+
+--
+-- Dumping data for table 'tags'
+--
+
+INSERT INTO `blogs_tags` (`blog_id`, `tag_id`) VALUES
+(1, 2),
+(1, 1),
+(2, 1),
+(2, 3);
+
+
+--
+-- Table structure for table 'categories'
+--
+
+CREATE TABLE IF NOT EXISTS `categories` (
+`category_id` int(11) NOT NULL,
+`category` varchar(25),
+PRIMARY KEY (`category_id`)
+);
+
+--
+-- Dumping data for table 'categories'
+-- 
+
+INSERT INTO `categories` (`category_id`, `category`) VALUES
+(1, 'Events'),
+(2, 'Philanthropy'),
+(3, 'Storms');
+
+
+--
+-- Table structure for table 'pages'
+--
+
+CREATE TABLE IF NOT EXISTS `pages` (
+`page_id` int(11) NOT NULL AUTO_INCREMENT,
+`title` varchar(50) NOT NULL,
+`content` text,
+`image` blob,
+PRIMARY KEY (`page_id`)
+);
+
+--
+-- Dumping data for table 'pages'
+-- 
+
+INSERT INTO `pages` (`page_id`, `title`, `content`, `image`) VALUES
+(1, 'Fire Twister Event', 'There is a baby-eating fire twister outside of Kansis City', 'someurl'),
+(2, 'Sharknado Event', 'There is a baby-eating sharknado outside of Atlanta', 'someurl');
+
+--
+-- Constraints for table `authorities`, `blogs`
+--
+ALTER TABLE `authorities`
+ ADD CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `authors` (`username`);
+
+ALTER TABLE `blogs`
+ ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`author_id`);
+ -- ADD CONSTRAINT `blogs_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`);
+
+
