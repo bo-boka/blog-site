@@ -20,7 +20,7 @@
         <bean id="dataSourceBean" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/BlogDB" />
         <property name="username" value="root" />
-        <property name="password" value="apprentice" />
+        <property name="password" value="passwordignore" />
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="initialSize" value="5" />
         <property name="maxTotal" value="20" />

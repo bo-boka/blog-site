@@ -1,2 +1,0 @@
-spring-persistence.xml
-test-applicationContext.xml
