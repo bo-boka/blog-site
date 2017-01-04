@@ -3,4 +3,8 @@ A collaborative (group of 4) dynamic blog website that gives the admin the abili
 
 # Overview
 
+Home page with dropdown link in nav bar.
+
+![alt tag](https://github.com/sarahboka/blog-site/blob/master/images/blogHomeDropdownNavBar.png)
+
 
