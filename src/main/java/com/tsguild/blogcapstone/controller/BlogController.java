@@ -38,7 +38,9 @@ public class BlogController {
         this.pageDao = pageDao;
     }
 
-    //all page displays
+    //all page displays first
+    
+    //home display
     @RequestMapping(value = {"/","home"}, method = RequestMethod.GET)
     public String displayHomePage(Model model) {
         List<Page> pagesModel = pageDao.getAllPages();
@@ -46,13 +48,13 @@ public class BlogController {
         return "home";
     }
     
-    //login page
+    //login page display
     @RequestMapping(value = "/login", method=RequestMethod.GET)
     public String displayLoginPage(){
         return "loginForm";
     }
     
-    //admin page
+    //admin page display
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String displayAdminPage(Model model){
         List<Page> pagesModel = pageDao.getAllPages();
@@ -97,11 +99,11 @@ public class BlogController {
     }
     
     // search page display
-    @RequestMapping(value = "/blogListDisplay", method = RequestMethod.GET)
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String displayBlogListCategory(Model model){
         List<Page> pagesModel = pageDao.getAllPages();
         model.addAttribute("pages", pagesModel);
-        return "blogListDisplay";
+        return "search";
     }
     
     //blog crud

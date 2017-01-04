@@ -46,7 +46,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="${pageContext.request.contextPath}/js/jquery-2.2.4.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/BlogListDisplay.js"></script>
+    <script src="${pageContext.request.contextPath}/js/search.js"></script>
 
 </body>
 </html>

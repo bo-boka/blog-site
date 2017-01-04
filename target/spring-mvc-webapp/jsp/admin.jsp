@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin Page - Boss</title>
+        <title>Admin Page</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
@@ -97,7 +97,7 @@
                                     <th width="10%"></th>
                                 </tr>
                             </thead>
-                            <!--                        define a placeholder to be replaced w dynamic content w jQuery-->
+                            <!--define a placeholder to be replaced w dynamic content w jQuery-->
                             <tbody id="draftRows" class="read-more-wrap"></tbody>
                         </table>
                         <button class="btn btn-default" id="blogExpand">Show All</button>
@@ -223,10 +223,10 @@
         <script src="${pageContext.request.contextPath}/js/jquery-2.2.4.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <script src="${pageContext.request.contextPath}/js/blogAdmin.js"></script>
+            <script src="${pageContext.request.contextPath}/js/blogAdminBoss.js"></script>
         </sec:authorize>
-        <sec:authorize access="hasRole('ROLE_USER')">
-            <script src="${pageContext.request.contextPath}/js/blogUser.js"></script>
+        <sec:authorize access="hasRole('ROLE_WORKER')">
+            <script src="${pageContext.request.contextPath}/js/blogAdminWorker.js"></script>
         </sec:authorize>
         <script src="${pageContext.request.contextPath}/js/pageAdmin.js"></script>
         <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

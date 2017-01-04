@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
 --
 INSERT INTO `authors` (`author_id`, `username`, `password`, `enabled`) 
 				 VALUES (1, "admin", "password", 1),
-						(2, "user", "password", 1),
+						(2, "worker", "password", 1),
 						(3, "both", "password", 1),
 						(4, "neither", "password", 1);
 --
@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 --
 INSERT INTO `authorities` (`username`, `authority`) VALUES
 ('admin', 'ROLE_ADMIN'),
-('user', 'ROLE_USER'),
+('worker', 'ROLE_WORKER'),
 ('both', 'ROLE_ADMIN'),
-('both', 'ROLE_USER'),
+('both', 'ROLE_WORKER'),
 ('neither', 'EATS_POTATOES');
 
 --

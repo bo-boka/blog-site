@@ -22,7 +22,7 @@
             <sec:authorize access="isFullyAuthenticated()">
                 <li role="presentation" class="${pageContext.request.requestURI eq '/BlogCapstone/jsp/admin.jsp' ? ' active' : ''}"><a class="menu" href="${pageContext.request.contextPath}/admin">Admin</a></li>
                 </sec:authorize>
-            <li role="presentation" class="${pageContext.request.requestURI eq '/BlogCapstone/jsp/blogListDisplay.jsp' ? ' active' : ''}"><a class="menu" href="${pageContext.request.contextPath}/blogListDisplay">Search</a></li>
+            <li role="presentation" class="${pageContext.request.requestURI eq '/BlogCapstone/jsp/search.jsp' ? ' active' : ''}"><a class="menu" href="${pageContext.request.contextPath}/search">Search</a></li>
                 <sec:authorize access="!isFullyAuthenticated()">
                 <li role="presentation" class="pull-right"><a href="${pageContext.request.contextPath}/login">login</a></li>
                 </sec:authorize>

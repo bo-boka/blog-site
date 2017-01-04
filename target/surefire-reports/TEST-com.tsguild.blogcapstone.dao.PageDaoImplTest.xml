@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="0" name="com.tsguild.blogcapstone.dao.PageDaoImplTest" time="4.591" errors="0" skipped="0">
+<testsuite tests="16" failures="0" name="com.tsguild.blogcapstone.dao.PageDaoImplTest" time="2.355" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_111\jre\bin"/>
@@ -63,20 +63,20 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountOnAddition" time="0.344"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddMultiplePages" time="0.134"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAgainstEmptyDAO" time="0.181"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemovePagesMultipleTimes" time="0.705"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testUpdatePage" time="0.418"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemovePageTwice" time="0.335"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountOnUpdate" time="0.341"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddOnePage" time="0.098"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPagesAfterRemovalOfNonExistent" time="0.113"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="addOneToEmptyDaoTest" time="0.158"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountAfterRemoval" time="0.513"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemoveOnePage" time="0.254"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountAfterTwiceRemoved" time="0.254"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testUpdateMultiplePages" time="0.198"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddSimilarPages" time="0.241"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemoveMultiplePages" time="0.304"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountOnAddition" time="0.147"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddMultiplePages" time="0.111"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAgainstEmptyDAO" time="0.073"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemovePagesMultipleTimes" time="0.382"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testUpdatePage" time="0.055"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemovePageTwice" time="0.05"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountOnUpdate" time="0.283"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddOnePage" time="0.056"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPagesAfterRemovalOfNonExistent" time="0.086"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="addOneToEmptyDaoTest" time="0.139"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountAfterRemoval" time="0.198"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemoveOnePage" time="0.143"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testPageCountAfterTwiceRemoved" time="0.141"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testUpdateMultiplePages" time="0.204"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddSimilarPages" time="0.143"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.PageDaoImplTest" name="testAddAndRemoveMultiplePages" time="0.144"/>
 </testsuite>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="20" failures="0" name="com.tsguild.blogcapstone.dao.BlogDaoImplTest" time="20.769" errors="0" skipped="0">
+<testsuite tests="20" failures="0" name="com.tsguild.blogcapstone.dao.BlogDaoImplTest" time="8.824" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_111\jre\bin"/>
@@ -63,24 +63,24 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddMultipleBlogs" time="12.135"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAgainstEmptyDAO" time="0.374"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogsAfterRemovalOfNonExistent" time="0.481"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountOnUpdate" time="0.83"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testUpdateBlog" time="0.236"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveBlogTwice" time="0.385"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByTitle" time="0.466"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddOneBlog" time="0.56"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="addOneToEmptyDaoTest" time="0.201"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountOnAddition" time="0.368"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveOneBlog" time="0.127"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveBlogsMultipleTimes" time="0.731"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByCategory" time="0.306"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountAfterRemoval" time="0.62"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountAfterTwiceRemoved" time="0.515"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testUpdateMultipleBlogs" time="0.496"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddSimilarBlogs" time="0.442"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByTags" time="0.808"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveMultipleBlogs" time="0.345"/>
-  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByAuthor" time="0.343"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddMultipleBlogs" time="1.766"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAgainstEmptyDAO" time="0.146"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogsAfterRemovalOfNonExistent" time="0.258"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountOnUpdate" time="0.534"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testUpdateBlog" time="0.145"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveBlogTwice" time="0.123"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByTitle" time="0.389"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddOneBlog" time="0.173"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="addOneToEmptyDaoTest" time="0.118"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountOnAddition" time="0.446"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveOneBlog" time="0.116"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveBlogsMultipleTimes" time="0.969"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByCategory" time="0.63"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountAfterRemoval" time="0.302"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testBlogCountAfterTwiceRemoved" time="0.278"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testUpdateMultipleBlogs" time="0.769"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddSimilarBlogs" time="0.476"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByTags" time="0.547"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testAddAndRemoveMultipleBlogs" time="0.358"/>
+  <testcase classname="com.tsguild.blogcapstone.dao.BlogDaoImplTest" name="testSearchBlogsByAuthor" time="0.281"/>
 </testsuite>

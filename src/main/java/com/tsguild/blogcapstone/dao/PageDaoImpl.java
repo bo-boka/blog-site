@@ -6,7 +6,6 @@
 package com.tsguild.blogcapstone.dao;
 
 import com.tsguild.blogcapstone.dto.Page;
-import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -97,12 +96,10 @@ public class PageDaoImpl implements PageDao {
             Integer id = rs.getInt("page_id");
             String title = rs.getString("title");
             String content = rs.getString("content");
-//            Blob image = rs.getBlob("image");
-            
+
             mappedPage.setId(id);
             mappedPage.setTitle(title);
             mappedPage.setContent(content);
-//            mappedPage.setImage(image);
             
             return mappedPage;
         }

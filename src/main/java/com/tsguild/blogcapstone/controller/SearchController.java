@@ -35,21 +35,21 @@ public class SearchController {
     
     
     @ResponseBody
-    @RequestMapping(value = "/blogListDisplayCategory/{category}", method = RequestMethod.GET)
+    @RequestMapping(value = "/searchCategory/{category}", method = RequestMethod.GET)
     public List<Blog> displayBlogsInCategory(@PathVariable String category){
         List<Blog> result = dao.searchBlogsByCategory(category);
         return result;
     }
     
     @ResponseBody
-    @RequestMapping(value = "/blogListDisplayAuthor/{author}", method = RequestMethod.GET)
+    @RequestMapping(value = "/searchAuthor/{author}", method = RequestMethod.GET)
     public List<Blog> displayBlogsByAuthor(@PathVariable String author){
         List<Blog> result = dao.searchBlogsByAuthor(author);
         return result;
     }
     
     @ResponseBody
-    @RequestMapping(value = "/blogListDisplayTitle/{title}", method = RequestMethod.GET)
+    @RequestMapping(value = "/searchTitle/{title}", method = RequestMethod.GET)
     public List<Blog> displayBlogsByTitle(@PathVariable String title){
         List<Blog> result = dao.searchBlogsByTitle(title);
         return result;

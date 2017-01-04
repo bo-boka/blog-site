@@ -99,7 +99,7 @@ function getCategory() {
         loadPosts();
     } else {
         $.ajax({
-            url: "blogListDisplayCategory/" + searchInfo,
+            url: "searchCategory/" + searchInfo,
             type: "GET",
             headers: {
                 "Accept": "application/json"
@@ -118,7 +118,7 @@ function getAuthor() {
         loadPosts();
     } else {
         $.ajax({
-            url: "blogListDisplayAuthor/" + searchInfo,
+            url: "searchAuthor/" + searchInfo,
             type: "GET",
             headers: {
                 "Accept": "application/json"
@@ -137,7 +137,7 @@ function getTitle() {
         loadPosts();
     } else {
         $.ajax({
-            url: "blogListDisplayTitle/" + searchInfo,
+            url: "searchTitle/" + searchInfo,
             type: "GET",
             headers: {
                 "Accept": "application/json"

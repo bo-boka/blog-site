@@ -8,10 +8,7 @@ package com.tsguild.blogcapstone.dao;
 import com.tsguild.blogcapstone.dto.Blog;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,7 +56,6 @@ public class BlogDaoImpl implements BlogDao {
 
         // add category
         jdbcTemplate.update(SQL_ADD_CATEGORY, blog.getCategory());
-
         //get author id
         int authorId = jdbcTemplate.queryForObject(SQL_GET_AUTHOR_ID, Integer.class, blog.getAuthor());
         //get category id
@@ -77,15 +73,6 @@ public class BlogDaoImpl implements BlogDao {
         blog.setId(id);
 
         // add tags
-//        if (blog.getTags().isEmpty()) {
-//            blog.setTags(null);
-//        } else {
-//            for (int i = 0; i < blog.getTags().size(); i++) {
-//                jdbcTemplate.update(SQL_ADD_BLOG_TAGS, blog.getTags().get(i));
-//                int tagId = jdbcTemplate.queryForObject(SQL_GET_TAG_ID, Integer.class, blog.getTags().get(i));
-//                jdbcTemplate.update(SQL_ADD_BLOGS_TAGS_BRIDGE, id, tagId);
-//            }
-//        }
         if (!blog.getTags().isEmpty()) {
 
             for (int i = 0; i < blog.getTags().size(); i++) {
@@ -129,23 +116,12 @@ public class BlogDaoImpl implements BlogDao {
 
         // add category
         jdbcTemplate.update(SQL_ADD_CATEGORY, blog.getCategory());
-
         //get author id
         int authorId = jdbcTemplate.queryForObject(SQL_GET_AUTHOR_ID, Integer.class, blog.getAuthor());
         //get category id
         int categoryId = jdbcTemplate.queryForObject(SQL_GET_CATEGORY_ID, Integer.class, blog.getCategory());
         // get blog id
         int blogId = blog.getId();
-
-
-//
-//        String formattedDate = null;
-//        try {
-//            Date date = new Date(blog.getDate());
-//            formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-//        } catch (IllegalArgumentException e) {
-//            System.out.println("Date not formatted");
-//        }
 
         jdbcTemplate.update(SQL_UPDATE_BLOG,
                 blog.getTitle(),
@@ -157,17 +133,6 @@ public class BlogDaoImpl implements BlogDao {
                 blogId
         );
 
-//        if (blog.getTags().isEmpty()) {
-//            blog.setTags(null);
-//        } else {
-//
-//            jdbcTemplate.update(SQL_REMOVE_TAGS, blogId);
-//            for (int i = 0; i < blog.getTags().size(); i++) {
-//                jdbcTemplate.update(SQL_ADD_BLOG_TAGS, blog.getTags().get(i));
-//                int tagId = jdbcTemplate.queryForObject(SQL_GET_TAG_ID, Integer.class, blog.getTags().get(i));
-//                jdbcTemplate.update(SQL_ADD_BLOGS_TAGS_BRIDGE, blogId, tagId);
-//            }
-//        }
         if (!blog.getTags().isEmpty()) {
 
             jdbcTemplate.update(SQL_REMOVE_TAGS, blogId);
@@ -226,7 +191,6 @@ public class BlogDaoImpl implements BlogDao {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
-
     }
 
     //SEARCH BLOGS BY AUTHOR
@@ -245,7 +209,6 @@ public class BlogDaoImpl implements BlogDao {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
-
     }
 
     //SEARCH BLOGS BY DATE
@@ -282,12 +245,6 @@ public class BlogDaoImpl implements BlogDao {
             int tagId = jdbcTemplate.queryForObject(SQL_GET_TAG_ID, Integer.class, tagName);
             List<Integer> blogIds = jdbcTemplate.queryForList(SQL_GET_POSTS_BY_TAGID, Integer.class, tagId);
 
-//            String sql = " or blog_id = ?";
-//            String sqlStatements = "";
-//            for (int i = 1; i < blogIds.size(); i++) {
-//                sqlStatements += sql;
-//            }
-
             List<Blog> blogList = new ArrayList<>();
             for (int i = 0; i < blogIds.size(); i++) {
                 try{
@@ -298,11 +255,8 @@ public class BlogDaoImpl implements BlogDao {
                     continue;
                 }
             }
-
             return blogList;
-//            SQL_BLOG_SEARCH_RESULTS += sqlStatements;
 
-//            return (List<Blog>) jdbcTemplate.query(SQL_BLOG_SEARCH_RESULTS, new BlogExtractor(), blogIds);
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
@@ -332,7 +286,7 @@ public class BlogDaoImpl implements BlogDao {
         return allBlogs;
     }
     
-    //get all blogs
+    //get all published blogs
     private static final String SQL_GET_ALL_PUBLISHED_BLOGS = "SELECT blogs.blog_id, title, content, authors.username, `date`, categories.category, tags.tag, published FROM blogs\n"
             + "	LEFT OUTER JOIN `authors` ON blogs.author_id = `authors`.author_id\n"
             + "    LEFT OUTER JOIN authorities ON `authors`.username = authorities.username\n"
