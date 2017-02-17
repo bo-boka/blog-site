@@ -140,7 +140,6 @@ public class BlogController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/blog/{id}", method = RequestMethod.PUT)
     public void updateBlog(@Valid @PathVariable int id, @Valid @RequestBody Blog blog){
-//        blog.setId(id);
         dao.updateBlog(blog);
     }
     
